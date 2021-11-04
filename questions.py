@@ -58,6 +58,9 @@ def check_db_questions():
 
 
 def create_questions():
+
+    # Is this the best way to organize this data? 
+
     q_id = [
         1,
         2,
@@ -158,6 +161,9 @@ def db_categories():
 def get_questions(topic):
     sql = 'SELECT * FROM questions WHERE category = ?'
     with sqlite3.connect(quiz_db) as conn:
+        conn.row_factory = sqlite3.Row  # set the row factory. Then you can 
+        # access data in each column as question['question_text'] or question['correct_answer'] 
+        # instead of question[1] or question[2]
         data=conn.execute(sql, (topic, ))
     questions = data.fetchall()
     conn.close()

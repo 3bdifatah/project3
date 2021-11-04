@@ -1,9 +1,8 @@
 import sqlite3
 
-
 quiz_db = 'quiz.sqlite'
 
-class result:
+class result:  # class names typically start with uppercase letters, so Result 
     def __init__(self, start_time, question_id, user_ans, is_correct, end_time, earned_points):
         self.start_time= start_time
         self.question_id= question_id
